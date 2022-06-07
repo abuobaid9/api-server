@@ -23,8 +23,14 @@ app.use(logger);
 app.use(foodRouter);
 app.use(clothesRouter);
 // app.use(v1);
+app.get('/', (req, res) => {
+  res.status(200).send('Go to the food path or cloth path ');
+});
 app.use('*', notFoundHandler);
 app.use(errorHandler);
+
+
+
 
 function start(PORT) {
   app.listen(PORT, () => {
